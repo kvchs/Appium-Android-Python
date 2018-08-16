@@ -4,7 +4,9 @@ desired_caps = {
     'platformName': 'Android',
     'platformVersion': '4.3',
     'deviceName': 'Customer Phone',
-    'app': 'D:\\AppiumDocument\\APIDemos.apk'
+    'app': 'D:\\AppiumDocument\\APIDemos.apk',
+    # 'sessionOverride': True
+    'noReset': True
 }
 
 driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
