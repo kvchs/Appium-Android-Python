@@ -113,7 +113,11 @@ IOS UIAutomation	When automating an iOS application, Apple’s Instruments frame
     3. ID 
     4. Name （新版不支持）
     5. XPath (不建議使用，存在性能問題)
+        by_xpath('//*[@class="" and @index=""]')   多个属性组合定位
     6. Android UiAutomator
+    7. 相对定位：
+        root_element = driver.find_element_by_id()
+        root_element.find_element_by_class_name().click()
     
 '''
 
