@@ -88,13 +88,34 @@ assertEqual('.activity', driver.current_activity)
 'resetKeyboard': True    Unicode键盘并非虚拟键盘，在界面上不会显示出来
 
 '''
-driver = webdriver.Remote('')
 
 
 
 
+'''
+Selector Strategies
+Strategy	Description
+Accessibility ID	Read a unique identifier for a UI element. For XCUITest it is the element's accessibility-id attribute. For Android it is the element's content-desc attribute.
+Class name	For IOS it is the full name of the XCUI element and begins with XCUIElementType. For Android it is the full name of the UIAutomator2 class (e.g.: android.widget.TextView)
+ID	Native element identifier. resource-id for android; name for iOS.
+Name	Name of element
+XPath	Search the app XML source using xpath (not recommended, has performance issues)
+Android UiAutomator	Use the UI Automator API, in particular the UiSelector class to locate elements. In Appium you send the Java code, as a string, to the server, which executes it in the application’s environment, returning the element or elements.
+IOS UIAutomation	When automating an iOS application, Apple’s Instruments framework can be used to find elements
 
 
+'''
+'''
+元素定位方式
+
+    1. Accessibility ID
+    2. Class name
+    3. ID 
+    4. Name （新版不支持）
+    5. XPath (不建議使用，存在性能問題)
+    6. Android UiAutomator
+    
+'''
 
 
 

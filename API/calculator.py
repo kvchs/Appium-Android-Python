@@ -4,7 +4,7 @@ import time
 
 desired_caps = {
     'platformName': 'Android',
-    'platformVersion': '4.3',
+    'platformVersion': '4.4.2',
     'deviceName': 'Customer Phone',
     'appPackage': 'com.android.calculator2',
     'appActivity': '.Calculator'
