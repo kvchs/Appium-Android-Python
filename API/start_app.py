@@ -1,13 +1,14 @@
 from appium import webdriver
-
 desired_caps = {
     'platformName': 'Android',
-    'platformVersion': '4.3',
+    # 'platformVersion': '4.3',
+    'platformVersion': '4.4.2',
     'deviceName': 'Customer Phone',
     'app': 'D:\\AppiumDocument\\APIDemos.apk'
 }
 
 driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+print(driver.session_id)
 a = driver.contexts
 print(a)  # ['NATIVE_APP']
 
