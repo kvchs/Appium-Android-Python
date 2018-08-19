@@ -118,6 +118,21 @@ IOS UIAutomation	When automating an iOS application, Apple’s Instruments frame
     7. 相对定位：
         root_element = driver.find_element_by_id()
         root_element.find_element_by_class_name().click()
+    8.Toast
+        Toast是Android的一种简易提示框，不会获取焦点，无法被点击
+        解决办法:
+            Appium在1.6之后开始支持识别Toast内容，需要在Capablity配置如下参数：
+                desired_caps['automationName'] = 'uiautomator2'
+            并且按照appium-uiautomation2-driver
+            
+            https://www.npmjs.com/package/appium-uiautomator2-driver
+            npm install appium-uiautomator2-driver
+            cnpm install appium-uiautomation2-driver
+            
+            完成之后，我们就可以使用cnpm代替npm来安装依赖包了。
+            npm install -g cnpm --registry=https://registry.npm.taobao.org
+    9.H5 页面元素定位（context切换）
+        
     
 '''
 
