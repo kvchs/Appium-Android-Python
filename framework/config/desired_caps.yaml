@@ -1,0 +1,19 @@
+platformName: Android
+
+# 安卓模拟器
+platformVersion: 4.3
+deviceName: Android Simulator
+
+# 真机
+#platformVersion: 4.3
+#udid: ID
+#deviceName: Name
+
+appName: API.apk
+noReset: False
+unicodeKeyboard: True
+resetKeyboard: True
+appPackage: com.tal.kaoyan
+appActivity: com.tal.kaoyan.ui.activity.SplashActivity
+ip: localhost
+port: 4723

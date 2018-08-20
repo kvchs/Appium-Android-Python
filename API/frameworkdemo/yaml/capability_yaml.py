@@ -1,5 +1,6 @@
 import yaml
 from appium import webdriver
+import os
 
 file = open('desired_caps.yaml', 'r')
 data = yaml.load(file)
