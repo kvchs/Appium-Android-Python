@@ -8,9 +8,10 @@ class BaseView(object):
     def find_elements(self, *locator):
         return self.driver.find_elements(*locator)
 
-    def get_window_size(self):
-        return self.driver.get_window_size()
+    def find_element_uiautomator_text(self, text):
+        # print('new UiSelector().text(\"{0}\")'.format(text))
+        return self.driver.find_element_by_android_uiautomator('new UiSelector().text(\"{0}\")'.format(text))
 
-    def swipe(self, start_x, start_y, end_x, end_y, duration):
-        # - duration - (optional) time to take the swipe, in ms.
-        return self.driver.swipe(start_x, start_y, end_x, end_y, duration)
+
+
+

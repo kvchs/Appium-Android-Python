@@ -10,7 +10,7 @@ deviceName: Android Simulator
 #deviceName: Name
 
 appName: API.apk
-noReset: False
+noReset: True
 unicodeKeyboard: True
 resetKeyboard: True
 appPackage: com.tal.kaoyan

@@ -31,6 +31,21 @@ class CommonMethod(BaseView):
         logging.info("get screenshot {0}".format(name))
         self.driver.get_screenshot_as_file(image)
 
+    def random_display_element(self, *loctor):
+        try:
+            element = self.find_element(*loctor)
+        except NoSuchElementException:
+            pass
+        else:
+            element.click()
+
+    def get_window_size(self):
+        return self.driver.get_window_size()
+
+    def swipe(self, start_x, start_y, end_x, end_y, duration):
+        # - duration - (optional) time to take the swipe, in ms.
+        return self.driver.swipe(start_x, start_y, end_x, end_y, duration)
+
 
 if __name__ == '__main__':
     driver = appium_desired()

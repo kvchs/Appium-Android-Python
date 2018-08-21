@@ -4,3 +4,4 @@ class BaseView(object):
 
     def find_element(self, *loc):
         return self.driver.find_element(loc)
+
