@@ -13,6 +13,7 @@ appName: API.apk
 noReset: True
 unicodeKeyboard: True
 resetKeyboard: True
+automationName: uiautomator2
 appPackage: com.tal.kaoyan
 appActivity: com.tal.kaoyan.ui.activity.SplashActivity
 ip: localhost

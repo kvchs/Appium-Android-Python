@@ -20,6 +20,7 @@ def appium_desired():
         'platformVersion': data['platformVersion'],
         'deviceName': data['deviceName'],
         'app': app_path,
+        'automationName': data['automationName'],
         'appPackage': data['appPackage'],
         'appActivity': data['appActivity'],
         'noReset': data['noReset'],
