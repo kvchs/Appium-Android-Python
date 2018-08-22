@@ -1,10 +1,12 @@
+import logging
+import os
+import time
+import csv
+
+from selenium.common.exceptions import NoSuchElementException
+
 from framework.base_view.base_view import BaseView
 from framework.common.desired_caps import appium_desired
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.by import By
-import time
-import os
-import logging
 
 
 class CommonMethod(BaseView):
@@ -20,6 +22,14 @@ class CommonMethod(BaseView):
         x2 = int(size[0] * 0.2)
         y1 = int(size[1] * 0.1)
         self.swipe(x1, y1, x2, y1, 1000)
+
+    def swipe_up(self):
+        logging.info('swipe up ...')
+        size = self.get_size()
+        x1 = int(size[0]*0.7)
+        y1 = int(size[1]*0.9)
+        y2 = int(size[1]*0.1)
+        self.swipe(x1, y1, x1, y2, 1000)
 
     def get_time(self):
         time_format = time.strftime('%Y-%m-%d %H-%M-%S ')
@@ -46,10 +56,21 @@ class CommonMethod(BaseView):
         # - duration - (optional) time to take the swipe, in ms.
         return self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
+    def get_csv_data(self, csv_file, read_line):
+        logging.info('read data in csv file ==>' + csv_file)
+        with open(csv_file, 'r', encoding='utf-8-sig') as file:
+            reader = csv.reader(file)
+            for index, row in enumerate(reader, 1):
+                if index == read_line:
+                    return row
+
 
 if __name__ == '__main__':
     driver = appium_desired()
     test_obj = CommonMethod(driver)
-    test_obj.get_screenshot("test")
-    test_obj.swipe_left()
-    driver.close_app()
+    # test_obj.get_screenshot("test")
+    # test_obj.swipe_left()
+    # driver.close_app()
+    csv_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'account.csv')
+    print(test_obj.get_csv_data(csv_file, 2))
+    print(csv_file)

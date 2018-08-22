@@ -1,9 +1,10 @@
-import yaml
 import logging.config
-from appium import webdriver
 import os
 
-CON_LOG = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '\\logs\\log.conf'
+import yaml
+from appium import webdriver
+
+CON_LOG = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '\\config\\log.conf'
 logging.config.fileConfig(CON_LOG)
 logging = logging.getLogger()
 
@@ -20,7 +21,7 @@ def appium_desired():
         'platformVersion': data['platformVersion'],
         'deviceName': data['deviceName'],
         'app': app_path,
-        'automationName': data['automationName'],
+        # 'automationName': data['automationName'],
         'appPackage': data['appPackage'],
         'appActivity': data['appActivity'],
         'noReset': data['noReset'],
@@ -28,7 +29,7 @@ def appium_desired():
         # 'resetKeyboard': data['resetKeyboard']
     }
 
-    # logging.info("Start application " + data['deviceName'])
+    logging.info("Start application " + data['deviceName'])
 
     driver = webdriver.Remote('http://' + str(data['ip']) + ':' + str(data['port']) + '/wd/hub', desired_caps)
     driver.implicitly_wait(5)

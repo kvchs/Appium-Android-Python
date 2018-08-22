@@ -13,6 +13,7 @@ appName: API.apk
 noReset: True
 unicodeKeyboard: True
 resetKeyboard: True
+# UIAutomation2 is only supported since Android 5.0 (Lollipop)
 automationName: uiautomator2
 appPackage: com.tal.kaoyan
 appActivity: com.tal.kaoyan.ui.activity.SplashActivity
