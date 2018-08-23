@@ -21,6 +21,7 @@ class TestLogin(CommonMethod):
 
     def login_action(self, username, password):
         time.sleep(10)
+        # self.get_screenshot('start_page')
         self.find_element_uiautomator_text('我').click()
         self.find_element(*self.login_message).click()
         self.find_element(*self.input_username).clear()
@@ -45,10 +46,15 @@ class TestLogin(CommonMethod):
         self.find_element(*self.btn_tool).click()
         logging.info("logout app ...")
         self.find_element_uiautomator_text('退出登录').click()
-        self.find_element_uiautomator_text('确定').click()
-        time.sleep(7)
-        logging.info('close app')
-        self.driver.close_app()
+        try:
+            self.find_element_uiautomator_text('确定').click()
+            time.sleep(7)
+            logging.info('close app')
+            self.driver.close_app()
+            return True
+        except NoSuchElementException:
+            logging.error('error')
+            return False
 
 
 if __name__ == '__main__':
