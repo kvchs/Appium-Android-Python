@@ -64,6 +64,13 @@ class CommonMethod(BaseView):
                 if index == read_line:
                     return row
 
+    def element_into_view(self, *loctor):
+        try:
+            while not self.driver.find_element(*loctor):
+                self.swipe_up()
+        except NoSuchElementException:
+            pass
+
 
 if __name__ == '__main__':
     driver = appium_desired()

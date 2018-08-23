@@ -19,4 +19,9 @@ class BaseView(object):
         # npm install appium-uiautomator2-driver
         return self.driver.find_element_by_xpath(xpath_expression)
 
+    def find_out_of_view_element(self, text):
+        return self.driver.find_element_by_android_uiautomator('new UiSelector().scrollIntoView(text(\"{0}\"))'.format(text))
+
+
+
 
